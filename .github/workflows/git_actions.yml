@@ -1,0 +1,23 @@
+name: Git Action CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git Clone
+        uses: actions/checkout@v2
+
+      - name: Read hello.txt
+        run: |
+          echo "This is Test Job. Content of hello.txt: $(cat hello.txt)"
+    
+    
